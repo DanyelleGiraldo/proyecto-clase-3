@@ -1,0 +1,128 @@
+.panel{
+    display: none;
+    padding: 20px;
+    background-color: rgb(192, 154, 104);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(rgb(160, 132, 132), rgb(148, 173, 148), blue, alpha);
+    animation: fadeIn 0,5s ease;
+}
+ 
+body, h1, h2, p {
+    margin: 0;
+    padding: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(32, 168, 168);
+    color: azure;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo de titulo mejorado*/
+header h1{
+    font-size: 3rem; /*tamaño más grande para tener un mayor impacto*/
+    text-transform: uppercase;
+    letter-spacing: 4px; /* espacio entre palabras*/
+    margin: 0;
+    animation: glow 1.5s infinite alternate;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #e1e1e1, #f4f4f4);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; /*Efecto degradado en el texto*/
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /*sobreado para mayor profundidad*/
+}
+
+/*Fondo animado debajo del titulo*/
+header::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2)0%, transparent 70%);
+    z-index: 0;
+    animation: pulse 6s infinite;
+    border-radius: 50%;
+}
+
+/*animación de pulso*/
+@keyframes pulse{
+0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+50% { 
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.6;
+}
+100% {
+    transform: translate(-50%, -50%) scale(1) ;
+    opacity: 1;
+}
+}
+
+p{
+    color: black;
+}
+
+h1{
+    font-size: 2rem;
+    color: #00d9ff;
+}
+
+main{
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.panel img{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.panel h2{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#panel1:checked~#content-panel1,
+#panel2:checked~#content-panel2,
+#panel3:checked~#content-panel3,
+#panel4:checked~#content-panel4
+{
+    display: block;
+}
+
+/* Animación*/
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+/*ocultar los contraladores*/
+input[type="radio"]{
+display: none;
+}
+
+.button{
+    background-color: gray;
+    padding: 10px;
+    border-radius: 20%;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
